@@ -1,5 +1,5 @@
 
-namespace DB_Project.Models
+namespace DbProject.Models
 { 
     public class Book 
     {
@@ -8,5 +8,6 @@ namespace DB_Project.Models
         public string genre { get; set; }
         public string PublishedYear { get; set; }
         public ICollection<BookAuthor> bookAuthors {get; set;} = new List<BookAuthor> ();
+        public ICollection<Loan> Loans {get; set;} = new List<Loan> ();
     }
 }

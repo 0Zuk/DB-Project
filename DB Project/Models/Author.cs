@@ -1,7 +1,7 @@
 using System;
 
 
-namespace DB_Project.Models
+namespace DbProject.Models
 { 
         public class Author
         {

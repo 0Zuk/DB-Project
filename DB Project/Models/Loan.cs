@@ -11,5 +11,6 @@ namespace DbProject.Models
             public string ReturnDate { get; set; }
             public string LoanerName { get; set; }
             public string PersonNr { get; set; }
+            
         }
 }
