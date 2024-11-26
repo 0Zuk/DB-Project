@@ -1,4 +1,4 @@
-using DB_Project.Models;
+using DbProject.Models;
 
 namespace DbProject.Models
 { 

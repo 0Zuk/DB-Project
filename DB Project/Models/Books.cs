@@ -7,7 +7,7 @@ namespace DbProject.Models
         public string Titel { get; set; }
         public string genre { get; set; }
         public string PublishedYear { get; set; }
-        public ICollection<BookAuthor> bookAuthors {get; set;} = new List<BookAuthor> ();
-        public ICollection<Loan> Loans {get; set;} = new List<Loan> ();
+        public ICollection<BookAuthor> bookAuthors {get; set;}
+        public ICollection<Loan> Loans {get; set;}
     }
 }
