@@ -17,7 +17,7 @@ public class AppDbContext : DbContext
 protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<BookAuthor>()
-        .HasKey(ba => new { ba.BookID, ba.AuthorID });
+        .HasKey(ba => ba.ID);
 
         modelBuilder.Entity<BookAuthor>()
             .HasOne(Ba => Ba.Book)
