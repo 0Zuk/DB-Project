@@ -8,7 +8,7 @@ namespace DbProject.Models
             public int BookID { get; set; }
             public Book? Book { get; set; }
             public DateTime LoanDate { get; set; }
-            public string ReturnDate { get; set; }
+            public DateTime ReturnDate { get; set; }
             public string LoanerName { get; set; }
             public string PersonNr { get; set; }
             
