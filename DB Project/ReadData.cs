@@ -6,13 +6,14 @@ using Microsoft.Identity.Client;
 
 public class ReadData
 {
+    //method for listing books and authors
     public static void ListBooksAndAuthors()
 {
     using (var context = new AppDbContext())
     {
         var books = context.books
-            .Include(b => b.bookAuthors) // include relation to bookauhtor
-            .ThenInclude(ba => ba.Author) // include author in bookauthor
+            .Include(b => b.bookAuthors) 
+            .ThenInclude(ba => ba.Author) 
             .ToList();
 
         if (books.Any())
@@ -79,7 +80,7 @@ public static void ListBooksByAuthor()
             Console.WriteLine($"Books written by {author.Name}:");
             foreach (var bookAuthor in author.bookAuthors)
             {
-                Console.WriteLine($"- {bookauthor.Book.titel}");
+                Console.WriteLine($"- {bookAuthor.Book.Titel}");
             }
         }
         else
@@ -102,7 +103,7 @@ public static void ListAuthorsByBook()
 
             if (book != null)
             {
-                Console.WriteLine($"Authors who contributed to {book.titel}:");
+                Console.WriteLine($"Authors who contributed to {book.Titel}:");
                 foreach (var bookAuthor in book.bookAuthors)
                 {
                     Console.WriteLine($"- {bookAuthor.Author.Name}");
@@ -128,7 +129,7 @@ public static void ListAuthorsByBook()
                 foreach (var loan in loans)
                 {
                     var returnDate = loan.LoanDate.AddDays(30); // Anta 30 dagar som lånetid
-                    Console.WriteLine($"Book: {loan.Book.titel}, Borrower: {loan.loanerName}, Loan Date: {loan.LoanDate.ToShortDateString()}, Return Date: {returnDate.ToShortDateString()}");
+                    Console.WriteLine($"Book: {loan.Book.Titel}, Borrower: {loan.LoanerName}, Loan Date: {loan.LoanDate.ToShortDateString()}, Return Date: {returnDate.ToShortDateString()}");
                 }
             }
             else

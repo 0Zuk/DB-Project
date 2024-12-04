@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using DbProject.Models; 
 
 public class DeleteData
-{
+{ //method for deleting an author
     public static void DeleteAuthor()
     {
         using (var context = new AppDbContext())
@@ -25,7 +25,7 @@ public class DeleteData
             }
         }
     }
-
+        //method for deleting a book
     public static void DeleteBook()
     {
         using (var context = new AppDbContext())
@@ -46,7 +46,7 @@ public class DeleteData
             }
         }
     }
-
+//method for deleting a loan
     public static void DeleteLoan()
     {
         using (var context = new AppDbContext())

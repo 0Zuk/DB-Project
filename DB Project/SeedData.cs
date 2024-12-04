@@ -9,39 +9,56 @@ public static class SeedData
        
         if (!context.authors.Any())
         {
-            
             context.authors.AddRange(
-                new Author { Name = "J.K. Rowling" },
-                new Author { Name = "George R.R. Martin" },
-                new Author { Name = "J.R.R. Tolkien" },
-                new Author { Name = "E. Aladdin" }
-                
+                new Author { Name = "Devran bulduk" },
+                new Author { Name = "Pontan kalle" },
+                new Author { Name = "Donald trump" },
+                new Author { Name = "Joe biden" }
             );
+            context.SaveChanges(); 
         }
 
         if (!context.books.Any())
         {
-            
             context.books.AddRange(
-                new Book { Titel = "Harry Potter and the Sorcerer's Stone", PublishedYear = "1997", genre = "Fantasy" },
-                new Book { Titel = "Game of Thrones", PublishedYear = "1996", genre = "Fantasy" },
-                new Book { Titel = "The Hobbit", PublishedYear = "1937", genre = "Fantasy" },
-                new Book { Titel = "Aladdin and the pupils", PublishedYear = "2024", genre = "Educational"}
+                new Book { Titel = "Harry harmynt den 3dje", PublishedYear = "1899", genre = "facts" },
+                new Book { Titel = "tom the trigger", PublishedYear = "2023", genre = "Fantasy" },
+                new Book { Titel = "The styler", PublishedYear = "1957", genre = "factual" },
+                new Book { Titel = "how to quit leagues of legends for dummies", PublishedYear = "2024", genre = "Educational" }
             );
+            context.SaveChanges(); 
+        }
+
+        
+        var authors = context.authors.ToList();
+        var books = context.books.ToList();
+
+        if (authors.Count == 0 || books.Count == 0)
+        {
+            Console.WriteLine("Authors or Books were not properly saved.");
+            return;
         }
 
         if (!context.bookAuthors.Any())
         {
-           
-            context.bookAuthors.AddRange(
-                new BookAuthor { BookID = 1, AuthorID = 1 },
-                new BookAuthor { BookID = 2, AuthorID = 2 },
-                new BookAuthor { BookID = 3, AuthorID = 3 },
-                new BookAuthor { BookID = 4, AuthorID = 4 }
-            );
+            try
+            {
+                context.bookAuthors.AddRange
+                (
+                    new BookAuthor { BookID = books.First(b => b.Titel == "Harry harmynt den 3dje").ID, AuthorID = authors.First(a => a.Name == "Devran bulduk").ID },
+                    new BookAuthor { BookID = books.First(b => b.Titel == "tom the trigger").ID, AuthorID = authors.First(a => a.Name == "Pontan kalle").ID },
+                    new BookAuthor { BookID = books.First(b => b.Titel == "The styler").ID, AuthorID = authors.First(a => a.Name == "Donald trump").ID },
+                    new BookAuthor { BookID = books.First(b => b.Titel == "how to quit leagues of legends for dummies").ID, AuthorID = authors.First(a => a.Name == "Joe biden").ID }
+                );
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Fel {ex.Message}");
+            }
         }
-
-
-        context.SaveChanges();
     }
+
+
+
 }

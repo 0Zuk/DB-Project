@@ -2,6 +2,7 @@ using DbProject.Models;
 
     public class AddData
     {
+        //method for adding an author
         public static void AddAuthor()
         {
             System.Console.WriteLine("Ge författren ett namn");
@@ -33,13 +34,18 @@ using DbProject.Models;
             }
             System.Console.WriteLine("Boken är nu tillagd");
         }
+        //meyhod for adding relation to author and a book
 public static void AddBookAuthorRelation()
     {
         using (var context = new AppDbContext())
         {
 
-
+            
             System.Console.WriteLine("Enter the book ID to associate it with an author of your choice: ");
+                foreach (var item in context.books.ToList())
+                {
+                   System.Console.WriteLine($"Välj mellan dessa ID {item.Titel} {item.ID}"); 
+                }
             int bookID = int.Parse(Console.ReadLine());
 
             System.Console.WriteLine("Enter author ID to associate it with the book");
@@ -70,7 +76,7 @@ public static void AddBookAuthorRelation()
 
     }
 
-    // Add loan method
+    // method for adding loan
     public static void AddLoan()
     {
         using (var context = new AppDbContext())

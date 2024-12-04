@@ -27,7 +27,7 @@ class Program
 
 
 
-    bool meny = false;
+    bool meny = false; //menu choice for user
             while (!meny)
             {
                 Console.WriteLine("\nVälj ett menyval");
@@ -57,6 +57,7 @@ class Program
                         AddData.AddBook();
                         break;
                     case "3":
+                    
                         AddData.AddBookAuthorRelation();
                         break;
                     case "4":
@@ -89,7 +90,7 @@ class Program
                     case "13":
                         meny = true;
                         break;
-                    default:
+                    default: //simple error handling
                         Console.WriteLine("Fel, försök igen");
                         break;
             }
